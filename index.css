@@ -1,0 +1,155 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    background-color: #5d6064; /* Dark background color for the footer */
+    color: #fff; /* White text color */
+    padding: 30px; /* Add padding for breathing space */
+    text-align: center; /* Center-align text */
+    border-top: 3px solid #dee2e6; /* Add a border on top */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin: 40px 20px 0 20px;
+}
+
+.container .header {
+    width: 100%;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the start */
+}
+
+.container .header .title {
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px; /* Add space between title and nav buttons */
+    font-size: 0.7em; /* Reduce font size */
+}
+
+.container .header h3 {
+    font-size: 3em;
+    font-weight: bolder;
+    border-bottom: 3px solid black;
+    margin: 0;
+}
+
+.container .header h3 span {
+    font-weight: 100;
+}
+
+.container .header .subtitle {
+    font-size: 2em; /* Increased font size */
+    margin-top: 30px; /* Increased space between title and subtitle */
+}
+
+.container .header .nav-buttons {
+    display: flex;
+    gap: 20px;
+    align-self: center; /* Align buttons to the center of the header */
+}
+
+.container .header .nav-buttons .button {
+    font-size: 1em;
+    color: black;
+    text-decoration: none;
+    position: relative;
+}
+
+.container .header .nav-buttons .button::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+}
+
+.container .header .nav-buttons .button:hover::after {
+    width: 100%;
+}
+
+.container .header .nav-buttons .button.active::after {
+    width: 100%;
+}
+
+.album-previews {
+    display: grid; /* Use grid display */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Define columns with minimum width of 200px */
+    gap: 20px; /* Add gap between grid items */
+}
+
+.album-preview {
+    margin-bottom: 20px; /* Adjust margin for individual album previews */
+}
+
+.album-preview h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px; /* Adjust margin for album preview title */
+}
+
+.preview-image {
+    position: relative;
+    display: inline-block;
+}
+
+.preview-image img {
+    max-width: 100%; /* Set maximum width to prevent images from overflowing */
+    border-radius: 10px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-image:hover .overlay {
+    opacity: 1;
+}
+
+.overlay p {
+    font-size: 0.9em;
+}
+
+@media only screen and (max-width: 1200px) {
+    .album-previews {
+        grid-template-columns: repeat(3, 1fr); /* Change to three columns */
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .album-previews {
+        grid-template-columns: repeat(2, 1fr); /* Change to two columns */
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .album-previews {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Maintain same layout as before */
+    }
+}
